@@ -14,31 +14,13 @@ const (
 	url           string = "https://amanz.my"
 )
 
-var newstype string = "latest"
-
-func usage() {
-	fmt.Println(`Usage: ./amanzscraper [newstype]
-
-[newstype]	can be any one of these: trending, latest, featured
-
-.`)
-	os.Exit(1)
-}
-
-func Get() {
-	if len(os.Args) > 2 {
-		usage()
-	}
-
-	if len(os.Args) > 1 {
-		newstype = os.Args[1]
-	}
+func Get(types string) {
 
 	var output string = defaultOutput
 
 	var news []string
 
-	switch newstype {
+	switch types {
 	case "trending":
 		news = Trending()
 	case "latest":

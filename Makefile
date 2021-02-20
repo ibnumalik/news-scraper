@@ -1,5 +1,5 @@
 build:
-	go build -o amanzscraper main.go
+	go build -ldflags "-s -w" -o news main.go
 
 run:
 	go run main.go
